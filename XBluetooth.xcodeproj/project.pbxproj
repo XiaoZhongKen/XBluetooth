@@ -13,6 +13,8 @@
 		1C1C771822BCBECD00DDE91E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C1C771722BCBECD00DDE91E /* Assets.xcassets */; };
 		1C1C771B22BCBECD00DDE91E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C1C771922BCBECD00DDE91E /* LaunchScreen.storyboard */; };
 		1C1C771E22BCBECD00DDE91E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1C771D22BCBECD00DDE91E /* main.m */; };
+		1C1C772822BCBEF200DDE91E /* LZBLECentral.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1C772422BCBEF200DDE91E /* LZBLECentral.m */; };
+		1C1C772922BCBEF200DDE91E /* LZBLEPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1C772622BCBEF200DDE91E /* LZBLEPeripheral.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		1C1C771A22BCBECD00DDE91E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C1C771C22BCBECD00DDE91E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C1C771D22BCBECD00DDE91E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1C1C772422BCBEF200DDE91E /* LZBLECentral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBLECentral.m; sourceTree = "<group>"; };
+		1C1C772522BCBEF200DDE91E /* LZBLEPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBLEPeripheral.h; sourceTree = "<group>"; };
+		1C1C772622BCBEF200DDE91E /* LZBLEPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBLEPeripheral.m; sourceTree = "<group>"; };
+		1C1C772722BCBEF200DDE91E /* LZBLECentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBLECentral.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,7 @@
 		1C1C770D22BCBECC00DDE91E /* XBluetooth */ = {
 			isa = PBXGroup;
 			children = (
+				1C1C772A22BCBF0B00DDE91E /* LZBLE */,
 				1C1C770E22BCBECC00DDE91E /* AppDelegate.h */,
 				1C1C770F22BCBECC00DDE91E /* AppDelegate.m */,
 				1C1C771122BCBECC00DDE91E /* ViewController.h */,
@@ -69,6 +76,17 @@
 				1C1C771D22BCBECD00DDE91E /* main.m */,
 			);
 			path = XBluetooth;
+			sourceTree = "<group>";
+		};
+		1C1C772A22BCBF0B00DDE91E /* LZBLE */ = {
+			isa = PBXGroup;
+			children = (
+				1C1C772722BCBEF200DDE91E /* LZBLECentral.h */,
+				1C1C772422BCBEF200DDE91E /* LZBLECentral.m */,
+				1C1C772522BCBEF200DDE91E /* LZBLEPeripheral.h */,
+				1C1C772622BCBEF200DDE91E /* LZBLEPeripheral.m */,
+			);
+			path = LZBLE;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,9 +159,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C1C772922BCBEF200DDE91E /* LZBLEPeripheral.m in Sources */,
 				1C1C771322BCBECC00DDE91E /* ViewController.m in Sources */,
 				1C1C771E22BCBECD00DDE91E /* main.m in Sources */,
 				1C1C771022BCBECC00DDE91E /* AppDelegate.m in Sources */,
+				1C1C772822BCBEF200DDE91E /* LZBLECentral.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +306,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T6EWB2HEK5;
 				INFOPLIST_FILE = XBluetooth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +324,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T6EWB2HEK5;
 				INFOPLIST_FILE = XBluetooth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
