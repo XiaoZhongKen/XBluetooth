@@ -8,6 +8,7 @@
 
 #import "LZBLECentral.h"
 #import <CoreBluetooth/CoreBluetooth.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 
 #define kKownPeripherals_MAC_UUID @"kwonperipheralsIdentities"
 
@@ -15,6 +16,8 @@
 
 @property (nonatomic, strong) CBCentralManager *centralManager;
 @property (nonatomic, strong) NSMutableArray *peripheralsOfInterest;
+@property (nonatomic, assign) NSInteger bluetoothStateOnSignal;
+@property (nonatomic, strong) NSSet *tmpPeripherals;
 
 @end
 
@@ -46,7 +49,7 @@
 - (void)scanPeripherals:(NSSet <LZBLEPeripheral *> *)peripherals {
     
     
-    
+
     if ([self isBluetoothOn]) {
         
         [self.peripheralsOfInterest addObjectsFromArray:[peripherals allObjects]];
@@ -66,8 +69,8 @@
             [self.centralManager scanForPeripheralsWithServices:@[peripheral.serviceOfInterest.service] options:@{CBCentralManagerScanOptionAllowDuplicatesKey: @NO}];
         }
     } else {
-        
-        
+        self.tmpPeripherals = peripherals;
+        self.bluetoothStateOnSignal = 1;
         
     }
 }
@@ -91,18 +94,40 @@
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
     NSLog(@"%ld", (long)central.state);
+    
+    if (self.bluetoothStateOnSignal == 1 && [self isBluetoothOn]) {
+        self.bluetoothStateOnSignal = 0;
+        
+        [self scanPeripherals:self.tmpPeripherals];
+    }
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *, id> *)advertisementData RSSI:(NSNumber *)RSSI {
     
-    NSString *MAC = [[advertisementData objectForKey:CBAdvertisementDataManufacturerDataKey] description];
-    
-    LZBLEPeripheral *didFoundPeripheral = [[self.peripheralsOfInterest filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"MAC == %@", MAC]] firstObject];
-    
-    if (didFoundPeripheral) {
-        didFoundPeripheral.cperipheral = peripheral;
-        [self.centralManager connectPeripheral:peripheral options:nil];
-        [self recordDiscoveredPeripheral:didFoundPeripheral];
+    NSString *kCBAdvDataManufacturerData = [[advertisementData objectForKey:CBAdvertisementDataManufacturerDataKey] description];
+    if (kCBAdvDataManufacturerData.length > 0) {
+        NSString *MAC = [self extractMACFromAdvertisement:kCBAdvDataManufacturerData];
+        MAC = [MAC stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:@"c"];
+        MAC = [MAC uppercaseString];
+        
+//        LZBLEPeripheral *didFoundPeripheral = [[self.peripheralsOfInterest filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"MAC == %@", MAC]] firstObject];
+        
+        LZBLEPeripheral *didFoundPeripheral = nil;
+        for (LZBLEPeripheral *peripheral in self.peripheralsOfInterest) {
+            if (peripheral.MAC.length > 0) {
+                NSString * MAC_dropColons = [peripheral.MAC stringByReplacingOccurrencesOfString:@":" withString:@""];
+                if ([MAC_dropColons isEqualToString:MAC]) {
+                    didFoundPeripheral = peripheral;
+                    break;
+                }
+            }
+        }
+        
+        if (didFoundPeripheral) {
+            didFoundPeripheral.cperipheral = peripheral;
+            [self.centralManager connectPeripheral:peripheral options:nil];
+            [self recordDiscoveredPeripheral:didFoundPeripheral];
+        }
     }
 }
 
@@ -152,6 +177,14 @@
         [mdict setValue:identity forKey:peripheral.MAC];
         [[NSUserDefaults standardUserDefaults] setObject:mdict forKey:kKownPeripherals_MAC_UUID];
     }
+}
+
+- (NSString *)extractMACFromAdvertisement:(NSString *)ad {
+    NSString *tmpStr = [NSString stringWithString:ad];
+    tmpStr = [tmpStr stringByReplacingOccurrencesOfString:@" " withString:@""];
+    tmpStr = [tmpStr stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    tmpStr = [tmpStr substringFromIndex:4];
+    return tmpStr;
 }
 
 @end

@@ -111,7 +111,7 @@ static NSString *const kOpenDoorServiceWriteCharacter = @"FF02";
 }
 
 - (void)peripheralIsReadyToReceiveData {
-    
+    NSLog(@"%@ connected", [self description]);
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(nullable NSError *)error {
@@ -124,6 +124,10 @@ static NSString *const kOpenDoorServiceWriteCharacter = @"FF02";
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(nullable NSError *)error {
     
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"MAC: %@\nKEY: %@\n", self.MAC, self.key];
 }
 
 

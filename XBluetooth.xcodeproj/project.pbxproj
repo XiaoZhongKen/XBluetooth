@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		1C1C771E22BCBECD00DDE91E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1C771D22BCBECD00DDE91E /* main.m */; };
 		1C1C772822BCBEF200DDE91E /* LZBLECentral.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1C772422BCBEF200DDE91E /* LZBLECentral.m */; };
 		1C1C772922BCBEF200DDE91E /* LZBLEPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1C772622BCBEF200DDE91E /* LZBLEPeripheral.m */; };
+		1CE52A0D22C1D12600BD1441 /* iOS_app.c in Sources */ = {isa = PBXBuildFile; fileRef = 1CE52A0C22C1D12600BD1441 /* iOS_app.c */; };
 		DB9A37E4B378E586DAF91DC2 /* Pods_XBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C66095F2A615B1B96AB304 /* Pods_XBluetooth.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,9 @@
 		1C1C772522BCBEF200DDE91E /* LZBLEPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBLEPeripheral.h; sourceTree = "<group>"; };
 		1C1C772622BCBEF200DDE91E /* LZBLEPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBLEPeripheral.m; sourceTree = "<group>"; };
 		1C1C772722BCBEF200DDE91E /* LZBLECentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBLECentral.h; sourceTree = "<group>"; };
+		1CE52A0A22C1D12600BD1441 /* iOS_app_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOS_app_utils.h; sourceTree = "<group>"; };
+		1CE52A0B22C1D12600BD1441 /* iOS_app.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOS_app.h; sourceTree = "<group>"; };
+		1CE52A0C22C1D12600BD1441 /* iOS_app.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = iOS_app.c; sourceTree = "<group>"; };
 		6E765550F387E0FC0E53B0E0 /* Pods-XBluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBluetooth.debug.xcconfig"; path = "Target Support Files/Pods-XBluetooth/Pods-XBluetooth.debug.xcconfig"; sourceTree = "<group>"; };
 		74C66095F2A615B1B96AB304 /* Pods_XBluetooth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XBluetooth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB60470ED2049A22EBA135AD /* Pods-XBluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBluetooth.release.xcconfig"; path = "Target Support Files/Pods-XBluetooth/Pods-XBluetooth.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,12 +92,23 @@
 		1C1C772A22BCBF0B00DDE91E /* LZBLE */ = {
 			isa = PBXGroup;
 			children = (
+				1CE52A0922C1D0E900BD1441 /* DataSymthesizer */,
 				1C1C772722BCBEF200DDE91E /* LZBLECentral.h */,
 				1C1C772422BCBEF200DDE91E /* LZBLECentral.m */,
 				1C1C772522BCBEF200DDE91E /* LZBLEPeripheral.h */,
 				1C1C772622BCBEF200DDE91E /* LZBLEPeripheral.m */,
 			);
 			path = LZBLE;
+			sourceTree = "<group>";
+		};
+		1CE52A0922C1D0E900BD1441 /* DataSymthesizer */ = {
+			isa = PBXGroup;
+			children = (
+				1CE52A0A22C1D12600BD1441 /* iOS_app_utils.h */,
+				1CE52A0C22C1D12600BD1441 /* iOS_app.c */,
+				1CE52A0B22C1D12600BD1441 /* iOS_app.h */,
+			);
+			path = DataSymthesizer;
 			sourceTree = "<group>";
 		};
 		5D7C14A37414C2F264EBDD93 /* Frameworks */ = {
@@ -110,7 +125,6 @@
 				6E765550F387E0FC0E53B0E0 /* Pods-XBluetooth.debug.xcconfig */,
 				AB60470ED2049A22EBA135AD /* Pods-XBluetooth.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -231,6 +245,7 @@
 				1C1C772922BCBEF200DDE91E /* LZBLEPeripheral.m in Sources */,
 				1C1C771322BCBECC00DDE91E /* ViewController.m in Sources */,
 				1C1C771E22BCBECD00DDE91E /* main.m in Sources */,
+				1CE52A0D22C1D12600BD1441 /* iOS_app.c in Sources */,
 				1C1C771022BCBECC00DDE91E /* AppDelegate.m in Sources */,
 				1C1C772822BCBEF200DDE91E /* LZBLECentral.m in Sources */,
 			);

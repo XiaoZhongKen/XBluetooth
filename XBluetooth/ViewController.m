@@ -31,13 +31,21 @@
     self.bluetoothActivityIndicator.hidden = NO;
     [self.bluetoothActivityIndicator startAnimating];
     
-    LZBLEPeripheral *p = [[LZBLEPeripheral alloc] initWithMac:@"00:15:83:1B:34:F2" andKey:@"1736"];
-    NSString *desc = [NSString stringWithFormat:@"MAC: %@\nKEY: %@", p.MAC, p.key];
-    self.listing.text = desc;
-    [[LZBLECentral shareCentral] scanPeripherals:[NSSet setWithObject:p]];
+    LZBLEPeripheral *p = [[LZBLEPeripheral alloc] initWithMac:@"C0:15:83:1B:34:F2" andKey:@"1736"];
     
+    LZBLEPeripheral *p2 = [[LZBLEPeripheral alloc] initWithMac:@"C0:15:83:3A:11:94" andKey:@"1736"];
     
+    LZBLEPeripheral *p3 = [[LZBLEPeripheral alloc] initWithMac:@"C0:C2:A1:60:01:6F" andKey:@"1736"];
     
+    NSSet *peripherals = [NSSet setWithObjects:p, p2, p3, nil];
+    
+    NSMutableString *ms = [[NSMutableString alloc] init];
+    for (LZBLEPeripheral *p in peripherals) {
+        [ms appendString:[p description]];
+        [ms appendFormat:@"\n"];
+    }
+    self.listing.text = ms;
+    [[LZBLECentral shareCentral] scanPeripherals:peripherals];
 }
 
 - (IBAction)stop:(id)sender {
