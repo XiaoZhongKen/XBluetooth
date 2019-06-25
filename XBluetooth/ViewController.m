@@ -35,6 +35,9 @@
     NSString *desc = [NSString stringWithFormat:@"MAC: %@\nKEY: %@", p.MAC, p.key];
     self.listing.text = desc;
     [[LZBLECentral shareCentral] scanPeripherals:[NSSet setWithObject:p]];
+    
+    
+    
 }
 
 - (IBAction)stop:(id)sender {
