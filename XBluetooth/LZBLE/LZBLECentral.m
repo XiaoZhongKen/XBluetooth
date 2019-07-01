@@ -12,12 +12,18 @@
 
 #define kKownPeripherals_MAC_UUID @"kwonperipheralsIdentities"
 
+typedef enum : NSUInteger {
+    XBluetoothDefaultMode,
+    XBluetoothPromiscuousMode,
+} XBluetoothMode;
+
 @interface LZBLECentral ()<CBCentralManagerDelegate>
 
 @property (nonatomic, strong) CBCentralManager *centralManager;
-@property (nonatomic, strong) NSMutableArray *peripheralsOfInterest;
 @property (nonatomic, assign) NSInteger bluetoothStateOnSignal;
+@property (nonatomic, assign) NSInteger scanPromiscuousSignal;
 @property (nonatomic, strong) NSSet *tmpPeripherals;
+@property (nonatomic, assign) XBluetoothMode mode;
 
 @end
 
@@ -56,11 +62,11 @@
         
         NSInteger storePeripheralCount = 0;
         for (LZBLEPeripheral *p in peripherals) {
-            CBPeripheral *storePeripheral = [self retrievePeripheralWithLZPeripheral:p];
-            if (storePeripheral) {
+            CBPeripheral *cachePeripheral = [self retrievePeripheralWithLZPeripheral:p];
+            if (cachePeripheral) {
                 storePeripheralCount++;
-                p.cperipheral = storePeripheral;
-                [self.centralManager connectPeripheral:storePeripheral options:nil];
+                p.cperipheral = cachePeripheral;
+                [self.centralManager connectPeripheral:cachePeripheral options:nil];
             }
         }
         
@@ -72,6 +78,17 @@
         self.tmpPeripherals = peripherals;
         self.bluetoothStateOnSignal = 1;
         
+    }
+}
+
+- (void)scanPeripheralPromiscuousMode {
+    
+    self.mode = XBluetoothPromiscuousMode;
+    if ([self isBluetoothOn]) {
+        
+        [self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:@"FF00"]] options:@{CBCentralManagerScanOptionAllowDuplicatesKey: @NO}];
+    } else {
+        self.scanPromiscuousSignal = 1;
     }
 }
 
@@ -100,6 +117,11 @@
         
         [self scanPeripherals:self.tmpPeripherals];
     }
+    
+    if (self.scanPromiscuousSignal == 1 && [self isBluetoothOn]) {
+        self.scanPromiscuousSignal = 0;
+        [self scanPeripheralPromiscuousMode];
+    }
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *, id> *)advertisementData RSSI:(NSNumber *)RSSI {
@@ -110,19 +132,25 @@
         MAC = [MAC stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:@"c"];
         MAC = [MAC uppercaseString];
         
-//        LZBLEPeripheral *didFoundPeripheral = [[self.peripheralsOfInterest filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"MAC == %@", MAC]] firstObject];
-        
         LZBLEPeripheral *didFoundPeripheral = nil;
-        for (LZBLEPeripheral *peripheral in self.peripheralsOfInterest) {
-            if (peripheral.MAC.length > 0) {
-                NSString * MAC_dropColons = [peripheral.MAC stringByReplacingOccurrencesOfString:@":" withString:@""];
-                if ([MAC_dropColons isEqualToString:MAC]) {
-                    didFoundPeripheral = peripheral;
-                    break;
+        
+        if (XBluetoothDefaultMode == self.mode) {
+            for (LZBLEPeripheral *peripheral in self.peripheralsOfInterest) {
+                if (peripheral.MAC.length > 0) {
+                    NSString * MAC_dropColons = [peripheral.MAC stringByReplacingOccurrencesOfString:@":" withString:@""];
+                    if ([MAC_dropColons isEqualToString:MAC]) {
+                        didFoundPeripheral = peripheral;
+                        break;
+                    }
                 }
             }
+        } else if (XBluetoothPromiscuousMode == self.mode) {
+            didFoundPeripheral = [[LZBLEPeripheral alloc] init];
+            NSString *coloned = [self insertColonForMAC:MAC];
+            didFoundPeripheral.MAC = coloned;
+            [self.peripheralsOfInterest addObject:didFoundPeripheral];
         }
-        
+
         if (didFoundPeripheral) {
             didFoundPeripheral.cperipheral = peripheral;
             [self.centralManager connectPeripheral:peripheral options:nil];
@@ -185,6 +213,14 @@
     tmpStr = [tmpStr stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
     tmpStr = [tmpStr substringFromIndex:4];
     return tmpStr;
+}
+
+- (NSString *)insertColonForMAC:(NSString *)MAC {
+    NSMutableString *mStr = [NSMutableString stringWithString:MAC];
+    for (int i = 2; i <= mStr.length; i += 3) {
+        [mStr insertString:@":" atIndex:i];
+    }
+    return [[NSString stringWithString:mStr] substringToIndex:mStr.length - 1];
 }
 
 @end

@@ -50,6 +50,7 @@ static NSString *const kOpenDoorServiceWriteCharacter = @"FF02";
 
 @property (nonatomic, strong) CBCharacteristic *writeChar;
 @property (nonatomic, strong) CBCharacteristic *notifyChar;
+@property (nonatomic, copy) void (^responseBlock)(NSData *reponse);
 
 @end
 
@@ -65,13 +66,21 @@ static NSString *const kOpenDoorServiceWriteCharacter = @"FF02";
     return self;
 }
 
-- (instancetype)initWithMac:(NSString *)mac andKey:(NSString *)key {
+- (instancetype)initWithMac:(NSString *)mac {
     self = [self init];
     if (self) {
         _MAC = mac;
-        _key = key;
     }
     return self;
+}
+
+- (void)writeData:(NSData *)data withResponseHandler:(void (^)(NSData *returnData))handler {
+    self.responseBlock = handler;
+    if (CBCharacteristicPropertyWriteWithoutResponse == self.writeChar.properties) {
+        [self.cperipheral writeValue:data forCharacteristic:self.writeChar type:CBCharacteristicWriteWithoutResponse];
+    } else if (CBCharacteristicPropertyWrite == self.writeChar.properties) {
+        [self.cperipheral writeValue:data forCharacteristic:self.writeChar type:CBCharacteristicWriteWithResponse];
+    }
 }
 
 #pragma mark - CBPeripheralDelegate
@@ -106,16 +115,21 @@ static NSString *const kOpenDoorServiceWriteCharacter = @"FF02";
     }
     
     if (self.notifyChar && self.writeChar) {
-        [self peripheralIsReadyToReceiveData];
+        [self peripheral:peripheral isReadyToReceiveDataWithWriteChar:self.writeChar andNotifyCharacter:self.notifyChar];
     }
 }
 
-- (void)peripheralIsReadyToReceiveData {
-    NSLog(@"%@ connected", [self description]);
+- (void)peripheral:(CBPeripheral *)peripheral isReadyToReceiveDataWithWriteChar:(CBCharacteristic *)writeCharacter andNotifyCharacter:(CBCharacteristic *)notifyChar {
+    
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(nullable NSError *)error {
+    if (error) {
+        
+        return;
+    }
     
+    self.responseBlock(characteristic.value);
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(nullable NSError *)error {
@@ -127,7 +141,7 @@ static NSString *const kOpenDoorServiceWriteCharacter = @"FF02";
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"MAC: %@\nKEY: %@\n", self.MAC, self.key];
+    return [NSString stringWithFormat:@"MAC: %@", self.MAC];
 }
 
 

@@ -12,6 +12,11 @@
 //
 //}UserInfo;
 
+typedef struct {
+    uint8_t data[30];
+    uint8_t len;
+} LZBLEProtocol;
+
 typedef struct{//卡信息
     char cardno[32];
     int isblack;

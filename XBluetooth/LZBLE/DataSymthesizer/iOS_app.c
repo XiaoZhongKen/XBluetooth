@@ -1,5 +1,6 @@
 #include "iOS_app.h"
 #include "iOS_app_utils.h"
+#include <math.h>
 
 uint16_t buflen = 0;
 uint8_t dataBuf[2048];

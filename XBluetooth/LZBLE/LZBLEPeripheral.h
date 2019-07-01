@@ -27,9 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, readonly) LZService *serviceOfInterest;
 @property (strong, nonatomic) CBPeripheral *cperipheral;
 @property (nonatomic, copy) NSString *MAC;
-@property (nonatomic, copy) NSString *key;
 
-- (instancetype)initWithMac:(NSString *)mac andKey:(NSString *)key;
+- (instancetype)initWithMac:(NSString *)mac;
+
+- (void)writeData:(NSData *)data withResponseHandler:(void (^)(NSData *returnData))handler;
 
 @end
 

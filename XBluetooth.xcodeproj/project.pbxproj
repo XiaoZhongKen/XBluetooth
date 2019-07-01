@@ -15,7 +15,23 @@
 		1C1C771E22BCBECD00DDE91E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1C771D22BCBECD00DDE91E /* main.m */; };
 		1C1C772822BCBEF200DDE91E /* LZBLECentral.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1C772422BCBEF200DDE91E /* LZBLECentral.m */; };
 		1C1C772922BCBEF200DDE91E /* LZBLEPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1C772622BCBEF200DDE91E /* LZBLEPeripheral.m */; };
+		1C43539E22C99C3F001E7D4F /* XBLESession.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C43539D22C99C3F001E7D4F /* XBLESession.m */; };
+		1C7F8D3F22C31D05005B02A0 /* LZGateDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F8D3E22C31D05005B02A0 /* LZGateDevice.m */; };
+		1C7F8D4522C5AA77005B02A0 /* lzProtocol.c in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F8D4422C5AA77005B02A0 /* lzProtocol.c */; };
+		1C7F8D6622C6051C005B02A0 /* URLSessionTaskOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F8D5F22C6051B005B02A0 /* URLSessionTaskOperation.m */; };
+		1C7F8D6722C6051C005B02A0 /* GroupOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F8D6022C6051C005B02A0 /* GroupOperation.m */; };
+		1C7F8D6822C6051C005B02A0 /* BlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F8D6322C6051C005B02A0 /* BlockOperation.m */; };
+		1C7F8D6922C6051C005B02A0 /* Operation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F8D6422C6051C005B02A0 /* Operation.m */; };
+		1C7F8D6F22C60528005B02A0 /* BlockObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F8D6D22C60528005B02A0 /* BlockObserver.m */; };
+		1C7F8D7022C60528005B02A0 /* TimeOutObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F8D6E22C60528005B02A0 /* TimeOutObserver.m */; };
+		1C7F8D7522C60534005B02A0 /* ExclusivityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F8D7322C60534005B02A0 /* ExclusivityController.m */; };
+		1C7F8D7622C60534005B02A0 /* OperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F8D7422C60534005B02A0 /* OperationQueue.m */; };
+		1C7F8D7D22C60543005B02A0 /* OperationCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F8D7822C60542005B02A0 /* OperationCondition.m */; };
+		1C7F8D7E22C60543005B02A0 /* MutuallyExclusive.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F8D7B22C60543005B02A0 /* MutuallyExclusive.m */; };
+		1C7F8D7F22C60543005B02A0 /* NSError+OperationErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F8D7C22C60543005B02A0 /* NSError+OperationErrors.m */; };
 		1CE52A0D22C1D12600BD1441 /* iOS_app.c in Sources */ = {isa = PBXBuildFile; fileRef = 1CE52A0C22C1D12600BD1441 /* iOS_app.c */; };
+		1CE52A1122C1F76400BD1441 /* PeripheralCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE52A0F22C1F76400BD1441 /* PeripheralCell.m */; };
+		1CE52A1222C1F76400BD1441 /* PeripheralCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CE52A1022C1F76400BD1441 /* PeripheralCell.xib */; };
 		DB9A37E4B378E586DAF91DC2 /* Pods_XBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74C66095F2A615B1B96AB304 /* Pods_XBluetooth.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,9 +50,41 @@
 		1C1C772522BCBEF200DDE91E /* LZBLEPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBLEPeripheral.h; sourceTree = "<group>"; };
 		1C1C772622BCBEF200DDE91E /* LZBLEPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBLEPeripheral.m; sourceTree = "<group>"; };
 		1C1C772722BCBEF200DDE91E /* LZBLECentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBLECentral.h; sourceTree = "<group>"; };
+		1C43539C22C99C3F001E7D4F /* XBLESession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBLESession.h; sourceTree = "<group>"; };
+		1C43539D22C99C3F001E7D4F /* XBLESession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBLESession.m; sourceTree = "<group>"; };
+		1C7F8D3D22C31D05005B02A0 /* LZGateDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZGateDevice.h; sourceTree = "<group>"; };
+		1C7F8D3E22C31D05005B02A0 /* LZGateDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZGateDevice.m; sourceTree = "<group>"; };
+		1C7F8D4322C5AA77005B02A0 /* lzProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lzProtocol.h; sourceTree = "<group>"; };
+		1C7F8D4422C5AA77005B02A0 /* lzProtocol.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = lzProtocol.c; sourceTree = "<group>"; };
+		1C7F8D5E22C6051B005B02A0 /* BlockOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockOperation.h; sourceTree = "<group>"; };
+		1C7F8D5F22C6051B005B02A0 /* URLSessionTaskOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLSessionTaskOperation.m; sourceTree = "<group>"; };
+		1C7F8D6022C6051C005B02A0 /* GroupOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupOperation.m; sourceTree = "<group>"; };
+		1C7F8D6122C6051C005B02A0 /* Operation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Operation.h; sourceTree = "<group>"; };
+		1C7F8D6222C6051C005B02A0 /* GroupOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupOperation.h; sourceTree = "<group>"; };
+		1C7F8D6322C6051C005B02A0 /* BlockOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockOperation.m; sourceTree = "<group>"; };
+		1C7F8D6422C6051C005B02A0 /* Operation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Operation.m; sourceTree = "<group>"; };
+		1C7F8D6522C6051C005B02A0 /* URLSessionTaskOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLSessionTaskOperation.h; sourceTree = "<group>"; };
+		1C7F8D6A22C60527005B02A0 /* TimeOutObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeOutObserver.h; sourceTree = "<group>"; };
+		1C7F8D6B22C60527005B02A0 /* OperationObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperationObserver.h; sourceTree = "<group>"; };
+		1C7F8D6C22C60527005B02A0 /* BlockObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockObserver.h; sourceTree = "<group>"; };
+		1C7F8D6D22C60528005B02A0 /* BlockObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockObserver.m; sourceTree = "<group>"; };
+		1C7F8D6E22C60528005B02A0 /* TimeOutObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeOutObserver.m; sourceTree = "<group>"; };
+		1C7F8D7122C60534005B02A0 /* OperationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperationQueue.h; sourceTree = "<group>"; };
+		1C7F8D7222C60534005B02A0 /* ExclusivityController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExclusivityController.h; sourceTree = "<group>"; };
+		1C7F8D7322C60534005B02A0 /* ExclusivityController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExclusivityController.m; sourceTree = "<group>"; };
+		1C7F8D7422C60534005B02A0 /* OperationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperationQueue.m; sourceTree = "<group>"; };
+		1C7F8D7722C60542005B02A0 /* OperationCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperationCondition.h; sourceTree = "<group>"; };
+		1C7F8D7822C60542005B02A0 /* OperationCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperationCondition.m; sourceTree = "<group>"; };
+		1C7F8D7922C60542005B02A0 /* MutuallyExclusive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutuallyExclusive.h; sourceTree = "<group>"; };
+		1C7F8D7A22C60543005B02A0 /* NSError+OperationErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+OperationErrors.h"; sourceTree = "<group>"; };
+		1C7F8D7B22C60543005B02A0 /* MutuallyExclusive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutuallyExclusive.m; sourceTree = "<group>"; };
+		1C7F8D7C22C60543005B02A0 /* NSError+OperationErrors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+OperationErrors.m"; sourceTree = "<group>"; };
 		1CE52A0A22C1D12600BD1441 /* iOS_app_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOS_app_utils.h; sourceTree = "<group>"; };
 		1CE52A0B22C1D12600BD1441 /* iOS_app.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOS_app.h; sourceTree = "<group>"; };
 		1CE52A0C22C1D12600BD1441 /* iOS_app.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = iOS_app.c; sourceTree = "<group>"; };
+		1CE52A0E22C1F76400BD1441 /* PeripheralCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeripheralCell.h; sourceTree = "<group>"; };
+		1CE52A0F22C1F76400BD1441 /* PeripheralCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeripheralCell.m; sourceTree = "<group>"; };
+		1CE52A1022C1F76400BD1441 /* PeripheralCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeripheralCell.xib; sourceTree = "<group>"; };
 		6E765550F387E0FC0E53B0E0 /* Pods-XBluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBluetooth.debug.xcconfig"; path = "Target Support Files/Pods-XBluetooth/Pods-XBluetooth.debug.xcconfig"; sourceTree = "<group>"; };
 		74C66095F2A615B1B96AB304 /* Pods_XBluetooth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XBluetooth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB60470ED2049A22EBA135AD /* Pods-XBluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBluetooth.release.xcconfig"; path = "Target Support Files/Pods-XBluetooth/Pods-XBluetooth.release.xcconfig"; sourceTree = "<group>"; };
@@ -81,6 +129,9 @@
 				1C1C771122BCBECC00DDE91E /* ViewController.h */,
 				1C1C771222BCBECC00DDE91E /* ViewController.m */,
 				1C1C771422BCBECC00DDE91E /* Main.storyboard */,
+				1CE52A0E22C1F76400BD1441 /* PeripheralCell.h */,
+				1CE52A0F22C1F76400BD1441 /* PeripheralCell.m */,
+				1CE52A1022C1F76400BD1441 /* PeripheralCell.xib */,
 				1C1C771722BCBECD00DDE91E /* Assets.xcassets */,
 				1C1C771922BCBECD00DDE91E /* LaunchScreen.storyboard */,
 				1C1C771C22BCBECD00DDE91E /* Info.plist */,
@@ -92,13 +143,80 @@
 		1C1C772A22BCBF0B00DDE91E /* LZBLE */ = {
 			isa = PBXGroup;
 			children = (
+				1C7F8D4E22C603D2005B02A0 /* XOperation */,
 				1CE52A0922C1D0E900BD1441 /* DataSymthesizer */,
 				1C1C772722BCBEF200DDE91E /* LZBLECentral.h */,
 				1C1C772422BCBEF200DDE91E /* LZBLECentral.m */,
 				1C1C772522BCBEF200DDE91E /* LZBLEPeripheral.h */,
 				1C1C772622BCBEF200DDE91E /* LZBLEPeripheral.m */,
+				1C7F8D3D22C31D05005B02A0 /* LZGateDevice.h */,
+				1C7F8D3E22C31D05005B02A0 /* LZGateDevice.m */,
+				1C43539C22C99C3F001E7D4F /* XBLESession.h */,
+				1C43539D22C99C3F001E7D4F /* XBLESession.m */,
 			);
 			path = LZBLE;
+			sourceTree = "<group>";
+		};
+		1C7F8D4E22C603D2005B02A0 /* XOperation */ = {
+			isa = PBXGroup;
+			children = (
+				1C7F8D5D22C60506005B02A0 /* Condition */,
+				1C7F8D5C22C604FD005B02A0 /* OperationQueue */,
+				1C7F8D5B22C604F3005B02A0 /* Observer */,
+				1C7F8D5A22C604E8005B02A0 /* Operation */,
+			);
+			path = XOperation;
+			sourceTree = "<group>";
+		};
+		1C7F8D5A22C604E8005B02A0 /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				1C7F8D5E22C6051B005B02A0 /* BlockOperation.h */,
+				1C7F8D6322C6051C005B02A0 /* BlockOperation.m */,
+				1C7F8D6222C6051C005B02A0 /* GroupOperation.h */,
+				1C7F8D6022C6051C005B02A0 /* GroupOperation.m */,
+				1C7F8D6122C6051C005B02A0 /* Operation.h */,
+				1C7F8D6422C6051C005B02A0 /* Operation.m */,
+				1C7F8D6522C6051C005B02A0 /* URLSessionTaskOperation.h */,
+				1C7F8D5F22C6051B005B02A0 /* URLSessionTaskOperation.m */,
+			);
+			path = Operation;
+			sourceTree = "<group>";
+		};
+		1C7F8D5B22C604F3005B02A0 /* Observer */ = {
+			isa = PBXGroup;
+			children = (
+				1C7F8D6C22C60527005B02A0 /* BlockObserver.h */,
+				1C7F8D6D22C60528005B02A0 /* BlockObserver.m */,
+				1C7F8D6B22C60527005B02A0 /* OperationObserver.h */,
+				1C7F8D6A22C60527005B02A0 /* TimeOutObserver.h */,
+				1C7F8D6E22C60528005B02A0 /* TimeOutObserver.m */,
+			);
+			path = Observer;
+			sourceTree = "<group>";
+		};
+		1C7F8D5C22C604FD005B02A0 /* OperationQueue */ = {
+			isa = PBXGroup;
+			children = (
+				1C7F8D7222C60534005B02A0 /* ExclusivityController.h */,
+				1C7F8D7322C60534005B02A0 /* ExclusivityController.m */,
+				1C7F8D7122C60534005B02A0 /* OperationQueue.h */,
+				1C7F8D7422C60534005B02A0 /* OperationQueue.m */,
+			);
+			path = OperationQueue;
+			sourceTree = "<group>";
+		};
+		1C7F8D5D22C60506005B02A0 /* Condition */ = {
+			isa = PBXGroup;
+			children = (
+				1C7F8D7922C60542005B02A0 /* MutuallyExclusive.h */,
+				1C7F8D7B22C60543005B02A0 /* MutuallyExclusive.m */,
+				1C7F8D7A22C60543005B02A0 /* NSError+OperationErrors.h */,
+				1C7F8D7C22C60543005B02A0 /* NSError+OperationErrors.m */,
+				1C7F8D7722C60542005B02A0 /* OperationCondition.h */,
+				1C7F8D7822C60542005B02A0 /* OperationCondition.m */,
+			);
+			path = Condition;
 			sourceTree = "<group>";
 		};
 		1CE52A0922C1D0E900BD1441 /* DataSymthesizer */ = {
@@ -107,6 +225,8 @@
 				1CE52A0A22C1D12600BD1441 /* iOS_app_utils.h */,
 				1CE52A0C22C1D12600BD1441 /* iOS_app.c */,
 				1CE52A0B22C1D12600BD1441 /* iOS_app.h */,
+				1C7F8D4322C5AA77005B02A0 /* lzProtocol.h */,
+				1C7F8D4422C5AA77005B02A0 /* lzProtocol.c */,
 			);
 			path = DataSymthesizer;
 			sourceTree = "<group>";
@@ -190,6 +310,7 @@
 				1C1C771B22BCBECD00DDE91E /* LaunchScreen.storyboard in Resources */,
 				1C1C771822BCBECD00DDE91E /* Assets.xcassets in Resources */,
 				1C1C771622BCBECC00DDE91E /* Main.storyboard in Resources */,
+				1CE52A1222C1F76400BD1441 /* PeripheralCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,12 +363,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C7F8D3F22C31D05005B02A0 /* LZGateDevice.m in Sources */,
+				1CE52A1122C1F76400BD1441 /* PeripheralCell.m in Sources */,
+				1C7F8D6722C6051C005B02A0 /* GroupOperation.m in Sources */,
 				1C1C772922BCBEF200DDE91E /* LZBLEPeripheral.m in Sources */,
 				1C1C771322BCBECC00DDE91E /* ViewController.m in Sources */,
+				1C7F8D6922C6051C005B02A0 /* Operation.m in Sources */,
 				1C1C771E22BCBECD00DDE91E /* main.m in Sources */,
 				1CE52A0D22C1D12600BD1441 /* iOS_app.c in Sources */,
+				1C7F8D4522C5AA77005B02A0 /* lzProtocol.c in Sources */,
+				1C43539E22C99C3F001E7D4F /* XBLESession.m in Sources */,
+				1C7F8D6F22C60528005B02A0 /* BlockObserver.m in Sources */,
 				1C1C771022BCBECC00DDE91E /* AppDelegate.m in Sources */,
+				1C7F8D7E22C60543005B02A0 /* MutuallyExclusive.m in Sources */,
+				1C7F8D7F22C60543005B02A0 /* NSError+OperationErrors.m in Sources */,
+				1C7F8D7D22C60543005B02A0 /* OperationCondition.m in Sources */,
 				1C1C772822BCBEF200DDE91E /* LZBLECentral.m in Sources */,
+				1C7F8D7622C60534005B02A0 /* OperationQueue.m in Sources */,
+				1C7F8D7022C60528005B02A0 /* TimeOutObserver.m in Sources */,
+				1C7F8D6622C6051C005B02A0 /* URLSessionTaskOperation.m in Sources */,
+				1C7F8D6822C6051C005B02A0 /* BlockOperation.m in Sources */,
+				1C7F8D7522C60534005B02A0 /* ExclusivityController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

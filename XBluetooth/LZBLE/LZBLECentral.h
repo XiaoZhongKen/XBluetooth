@@ -13,9 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LZBLECentral : NSObject
 
+@property (nonatomic, strong) NSMutableArray *peripheralsOfInterest;
+
 + (instancetype)shareCentral;
 
 - (void)scanPeripherals:(NSSet <LZBLEPeripheral *> *)peripherals;
+
+- (void)scanPeripheralPromiscuousMode;
 
 @end
 
